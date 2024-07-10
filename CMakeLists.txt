@@ -356,7 +356,7 @@ else()
       set(PYTHON_VERSION_REQ "3")
     endif()
     find_package(PythonInterp ${PYTHON_VERSION_REQ} REQUIRED)
-    execute_process ( COMMAND ${PYTHON_EXECUTABLE} -c "from __future__ import print_function; from distutils.sysconfig import get_python_lib; print(get_python_lib())"
+    execute_process ( COMMAND ${PYTHON_EXECUTABLE} -c "from __future__ import print_function; from sysconfig import get_path; print(get_path('purelib'))"
       OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE)
     set(DEF_PYTHON_PREFIX ${PYTHON_SITE_PACKAGES})
   endif()

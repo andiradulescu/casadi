@@ -30,7 +30,7 @@ from numpy import double, int32, ones, matrix, zeros
 import unittest
 from types import *
 from helpers import *
-from distutils.version import LooseVersion
+from packaging import version
 
 scipy_available = True
 try:
@@ -238,7 +238,7 @@ class typemaptests(casadiTestCase):
     B = DM([[7,2],[0,9]])
     LA = [A]
     RB = [B]
-    if LooseVersion(np.__version__) >= LooseVersion("1.10"):
+    if version.parse(np.__version__) >= version.parse("1.10"):
       LA.append(np.array(A))
       RB.append(np.array(B))
     for L in LA:
