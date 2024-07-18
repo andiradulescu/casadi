@@ -96,9 +96,11 @@ distinfo_dir = os.path.join(bdist_dir,'%s.dist-info' % wheel_dist_name)
 if not os.path.exists(distinfo_dir):
   os.mkdir(distinfo_dir)
 
+shutil.move(os.path.join(dir_name, 'casadi'), os.path.join(dir_name, 'casadi-fork'))
+
 for d in os.listdir(dir_name):
-  if not d.startswith("casadi") and os.path.isdir(os.path.join(dir_name, d)):
-    shutil.copytree(os.path.join(dir_name, d),os.path.join(bdist_dir,"casadi",d),dirs_exist_ok=True)
+  if not d.startswith("casadi-fork") and os.path.isdir(os.path.join(dir_name, d)):
+    shutil.copytree(os.path.join(dir_name, d),os.path.join(bdist_dir,"casadi-fork",d),dirs_exist_ok=True)
     shutil.rmtree(os.path.join(dir_name, d))
 
 msg = Message()
