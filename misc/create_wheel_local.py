@@ -89,7 +89,7 @@ def write_record(bdist_dir, distinfo_dir):
                   path, bdist_dir).replace(os.path.sep, '/')
               writer.writerow((record_path, hash, size))
              
-wheel_dist_name = "casadi" + "-" + version
+wheel_dist_name = "casadi-fork" + "-" + version
 bdist_dir = dir_name
 
 distinfo_dir = os.path.join(bdist_dir,'%s.dist-info' % wheel_dist_name)
@@ -119,7 +119,7 @@ with open(wheelfile_path, 'w') as f:
 metadata_path = os.path.join(distinfo_dir, 'METADATA')
 with open(metadata_path, 'w') as f:
     f.write("""Metadata-Version: 2.1
-Name: casadi
+Name: casadi-fork
 Version: %s
 Summary: CasADi -- framework for algorithmic differentiation and numeric optimization
 Home-page: http://casadi.org
